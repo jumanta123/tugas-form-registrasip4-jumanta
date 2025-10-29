@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Registrasi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Form Registrasi</h2>
+    <div class="form-group">
+      <label for="namaDepan">Nama Depan</label>
+      <input type="text" id="namaDepan" placeholder="Masukkan nama depan">
+    </div>
+    <div class="form-group">
+      <label for="namaBelakang">Nama Belakang</label>
+      <input type="text" id="namaBelakang" placeholder="Masukkan nama belakang">
+    </div>
+    <button id="btnSubmit">Kirim</button>
+  </div>
+
+  <script>
+    document.getElementById("btnSubmit").addEventListener("click", function() {
+      const namaDepan = document.getElementById("namaDepan").value;
+      const namaBelakang = document.getElementById("namaBelakang").value;
+      console.log("Nama Lengkap :", namaDepan + " " + namaBelakang);
+      alert("Nama Lengkap : " + namaDepan + " " + namaBelakang);
+    });
+  </script>
+
+</body>
+</html>
