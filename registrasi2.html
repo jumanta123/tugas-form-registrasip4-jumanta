@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Registrasi Nilai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f6fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 320px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .log {
+      margin-top: 20px;
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Form Registrasi Nilai</h2>
+    <label for="namaDepan">Nama Depan</label>
+    <input type="text" id="namaDepan" placeholder="Masukkan nama depan">
+
+    <label for="namaBelakang">Nama Belakang</label>
+    <input type="text" id="namaBelakang" placeholder="Masukkan nama belakang">
+
+    <label for="nilaiAngka">Nilai Angka</label>
+    <input type="number" id="nilaiAngka" placeholder="Masukkan nilai angka">
+
+    <button onclick="tampilkanLog()">Tampilkan Log</button>
+
+    <div class="log" id="outputLog"></div>
+  </div>
+
+  <script>
+    function konversiNilaiHuruf(nilai) {
+      if (nilai >= 85) return "A";
+      else if (nilai >= 70) return "B";
+      else if (nilai >= 55) return "C";
+      else if (nilai >= 40) return "D";
+      else return "E";
+    }
+
+    function tampilkanLog() {
+      const namaDepan = document.getElementById("namaDepan").value.trim();
+      const namaBelakang = document.getElementById("namaBelakang").value.trim();
+      const nilaiAngka = parseFloat(document.getElementById("nilaiAngka").value);
+      const output = document.getElementById("outputLog");
+
+      if (!namaDepan || !namaBelakang || isNaN(nilaiAngka)) {
+        output.innerHTML = "<span style='color:red;'>Harap isi semua data dengan benar.</span>";
+        return;
+      }
+
+      const nilaiHuruf = konversiNilaiHuruf(nilaiAngka);
+      output.innerHTML = `
+        Nama Lengkap : ${namaDepan} ${namaBelakang}<br>
+        Nilai Angka : ${nilaiAngka}<br>
+        Nilai Huruf : ${nilaiHuruf}
+      `;
+    }
+  </script>
+</body>
+</html>
